@@ -33,6 +33,7 @@ function viewAllDepartments() {
     });
 };
 
+
 function addDepartment(name) {
     const sql = `INSERT INTO departments (name) VALUES (?)`;
     const params = [name];
@@ -57,6 +58,7 @@ function viewAllRoles() {
         console.table(rows);
     });
 };
+
 
 function addRole(title, salary, department_id) {
     const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`;
@@ -83,6 +85,7 @@ function viewAllEmployees() {
     });
 };
 
+
 function addEmployee(first_name, last_name, role_id, manager_id) {
     const sql = `INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
     const params = [first_name, last_name, role_id, manager_id];
@@ -100,7 +103,3 @@ db.connect(err => {
     if (err) throw err;
     console.log('Database connected.');
 });
-
-viewAllRoles();
-addRole('Hottest in the office', 1000000, 2);
-viewAllRoles();
