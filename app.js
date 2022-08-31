@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const db = require('./db/connection');
 
 function promptAction() {
     return inquirer.prompt([
@@ -18,3 +19,8 @@ function promptAction() {
         }
     ]);
 };
+
+db.connect(err => {
+    if (err) throw err;
+    console.log('Database connected.');
+});
